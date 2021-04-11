@@ -37,5 +37,7 @@ You can run any of these commands as you wish:
 
 To change server port, add `--port number` to the `server` command inside `package.json`.
 Here is an example to change port from 3000 to 8080:
-```"server": "browser-sync start --server src --serveStatic temp --files temp, \"src/**/*.html\" --port 8080",```
+```
+"server": "browser-sync start --server src --serveStatic temp --files temp, \"src/**/*.html\" --port 8080",
+```
 
