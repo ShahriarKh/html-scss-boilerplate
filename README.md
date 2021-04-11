@@ -31,9 +31,11 @@ Ready to publish your work? Make sure server isn't running, then type `npm run b
 
 ## Commands Explained
 You can run any of these commands as you wish:
-* `npm run css-scss:*`: Generates `css` from `scss` using node-sass without minification. (replace * with `dev` or `build`)
+* `npm run css-scss:*` Generates `css` from `scss` using node-sass without minification. (replace * with `dev` or `build`)
 * `npm run css-autoprefixer:*`: Automatically adds browser prefixes to css files (where needed) using PostCSS "autoprefixer" plugin. (replace * with `dev` or `build`)
 * `npm run css-nano`: Minifies css code using PostCSS "nano" plugin. (only works in `build` folder)
 
 To change server port, add `--port number` to the `server` command inside `package.json`.
+Here is an example to change port from 3000 to 8080:
+```"server": "browser-sync start --server src --serveStatic temp --files temp, \"src/**/*.html\" --port 8080",```
 
