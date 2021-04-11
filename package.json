@@ -1,0 +1,24 @@
+{
+  "name": "html-scss-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "css:sass": "node-sass --sourcemap=none ./src/styles.scss -o ./dist/",
+    "css:autoprefixer": "postcss --use autoprefixer --no-map --replace ./dist/styles.css",
+    "css:nano": "postcss --use cssnano --no-map --replace ./dist/styles.css",
+    "css:build": "npm run css:sass && npm run css:autoprefixer && npm run css:nano",
+
+    "html:build": "html-minifier --input-dir ./src/ --output-dir ./dist --collapse-whitespace --minify-css --minify-js --process-conditional-comments --remove-comments --remove-empty-attributes --remove-script-type-attributes --remove-style-link-type-attributes --file-ext html",
+
+    "build": "npm run html:build & npm run css:build"
+  },
+  "author": "Shahriar Khalvati",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.5.0",
+    "node-sass": "5.0.0",
+    "cssnano": "^4.1.10",
+    "postcss-cli": "^6.1.2",
+    "html-minifier": "^4.0.0"
+  }
+}
