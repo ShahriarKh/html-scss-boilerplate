@@ -8,7 +8,7 @@ You should have [Node.js](https://nodejs.org/en/download/) installed to use comm
 To begin coding, put your `html` files inside `src/` folder and your scss files in `src/styles`.
 
 ## :fire: Hot Reload!
-To use the hot reload feature and preview your changes as you save your code, open your root folder (not `src`) in a terminal/cmd and type `npm start`. This will open your `html` files with automatic `scss` compiling in `localhost`. If everything is okay, you will see something like that in your terminal:
+To use the hot reload feature and preview your changes as you save your code, open your root folder (not `src`) in a terminal/cmd and type `npm start`. This will open your `html` files with automatic `scss` compiling in `localhost`. If everything is okay, you will see something like this in your terminal:
 ```
 [Browsersync] Access URLs:
  -------------------------------------
