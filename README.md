@@ -19,11 +19,21 @@ To use the hot reload feature and preview your changes as you save your code, op
  UI External: http://localhost:3001
  -------------------------------------
 ```
+Localhost will be opened automatically for you. In case it didn't, manually enter the URL after `Local: `.
 You can stop the server with `ctrl + c` (in Windows).
 
 ## :iphone: Live Preview on Mobile and Other Devices
 To access your development server from another device (for example, your mobile), open the `External` url, not the `Local` one.
-> Make sure the devices are connected to the same network and `port 3000` (or any other port you use) is not blocked by your firewall!
+Make sure the devices are connected to the same network and `port 3000` (or any other port you use) is not blocked by your firewall!
 
 ## Build
-Ready to publish your work? Make sure server isn't running, then type `npm run build` in your terminal; This will create a folder called `build/` with minified css files and minified html files inside it. Tamam!
+Ready to publish your work? Make sure server isn't running, then type `npm run build` in your terminal; this will create a folder called `build/` with minified css files and minified html files inside it. Tamam!
+
+## Commands Explained
+You can run any of these commands as you wish:
+* `npm run css-scss:*`: Generates `css` from `scss` using node-sass without minification. (replace * with `dev` or `build`)
+* `npm run css-autoprefixer:*`: Automatically adds browser prefixes to css files (where needed) using PostCSS "autoprefixer" plugin. (replace * with `dev` or `build`)
+* `npm run css-nano`: Minifies css code using PostCSS "nano" plugin. (only works in `build` folder)
+
+To change server port, add `--port number` to the `server` command inside `package.json`.
+
