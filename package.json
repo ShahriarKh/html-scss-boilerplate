@@ -3,22 +3,29 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "css:sass": "node-sass --sourcemap=none ./src/styles.scss -o ./dist/",
-    "css:autoprefixer": "postcss --use autoprefixer --no-map --replace ./dist/styles.css",
-    "css:nano": "postcss --use cssnano --no-map --replace ./dist/styles.css",
-    "css:build": "npm run css:sass && npm run css:autoprefixer && npm run css:nano",
-
-    "html:build": "html-minifier --input-dir ./src/ --output-dir ./dist --collapse-whitespace --minify-css --minify-js --process-conditional-comments --remove-comments --remove-empty-attributes --remove-script-type-attributes --remove-style-link-type-attributes --file-ext html",
-
-    "build": "npm run html:build & npm run css:build"
+    "css-scss:dev": "node-sass --source-map-embed true src/styles/styles.scss temp/styles/styles.css",
+    "css-scss:build": "node-sass --sourcemap=none src/styles/styles.scss build/styles/styles.css",
+    "css-autoprefixer:dev": "postcss --use autoprefixer --replace temp/styles/styles.css",
+    "css-autoprefixer:build": "postcss --use autoprefixer --no-map --replace build/styles/styles.css",
+    "css-nano": "postcss --use cssnano --no-map --replace build/styles/styles.css",
+    "dev:css": "run-s css-scss:dev css-autoprefixer:dev",
+    "watch:css": "onchange \"src/styles/**/*.scss\" -- run-s css-scss:dev css-autoprefixer:dev",
+    "build:css": "run-s css-scss:build css-autoprefixer:build css-nano",
+    "build:html": "html-minifier --input-dir ./src/ --output-dir ./build/ --collapse-whitespace --minify-css --process-conditional-comments --remove-comments --remove-empty-attributes --remove-script-type-attributes --remove-style-link-type-attributes --file-ext html",
+    "server": "browser-sync start --server src --serveStatic temp --files temp, \"src/**/*.html\"",
+    "start": "run-p dev:css watch:css server",
+    "build": "run-p build:css build:html"
   },
   "author": "Shahriar Khalvati",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.5.0",
-    "node-sass": "5.0.0",
+    "browser-sync": "^2.26.14",
     "cssnano": "^4.1.10",
-    "postcss-cli": "^6.1.2",
-    "html-minifier": "^4.0.0"
+    "html-minifier": "^4.0.0",
+    "node-sass": "5.0.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^6.1.2"
   }
 }
